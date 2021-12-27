@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<script src="https://unpkg.com/vue@next" defer></script>
+<script src="https://unpkg.com/axios/dist/axios.min.js" defer></script>
+<script src="./index.js" defer></script>
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+<body>
+    <div id="app" class = "main-container">
+        <div class="converter-panel">
+            <div class="converter-label">
+                <p>Конвертер</p>
+            </div>
+            <div class="left-currency">
+                <select v-model="valuteLeft">
+                    <option v-if="defaultSelected" selected>{{ defaultSelected }}</option>
+                    <option v-for="name in valutes">{{name}}</option>
+                </select>
+                <input type="text" v-model="amount">
+            </div>
+            <div class="right-currency">
+                <select v-model="valuteRight">
+                    <option v-for="name in valutes">{{name}}</option>
+                </select>
+                <input type="text" v-model="amountRes" readonly>
+            </div>
+            <button type="submit" v-on:click="convert">Конвертировать</button>
+        </div>
+        <div class="history">
+            <div class = "get-history">
+                <button v-on:click="getHistory">История транзакций</button>
+            </div>
+            <div v-if="history" class="table">
+                <div class="element row" v-for="elem in history">
+                    <div class="from col-md-2">{{ elem.fromCode }}</div>
+                    <div class="from col-md-2">{{ elem.toCode }}</div>
+                    <div class="from col-md-2">{{ elem.course.value }}</div>
+                    <div class="from col-md-2">{{ elem.result }}</div>
+                    <div class="from col-md-2">{{ elem.date }}</div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+</script>
+</html>
