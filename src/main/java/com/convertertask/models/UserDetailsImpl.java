@@ -19,7 +19,7 @@ public class UserDetailsImpl implements UserDetails {
     String username;
     String password;
     List<GrantedAuthority> authorities = new LinkedList<>();
-    boolean isEnabled;
+    boolean isEnabled = true;
 
     public UserDetailsImpl(){}
 
@@ -69,5 +69,9 @@ public class UserDetailsImpl implements UserDetails {
     @Override
     public boolean isEnabled() {
         return isEnabled;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
     }
 }

@@ -7,6 +7,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
+import org.springframework.security.crypto.factory.PasswordEncoderFactories;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Component;
 
 import java.util.Optional;
@@ -30,10 +32,14 @@ public class UserService implements UserDetailsService {
 
     public boolean saveUser(UserDetailsImpl user){
         Optional<User> presented = Optional.ofNullable(userRepository.findByUsername(user.getUsername()));
+
         if (presented.isPresent()){
             return false;
         }
         else {
+            PasswordEncoder passwordEncoder =
+                    PasswordEncoderFactories.createDelegatingPasswordEncoder();
+            user.setPassword(passwordEncoder.encode(user.getPassword()));
             userRepository.save(new User(user));
             return true;
         }
