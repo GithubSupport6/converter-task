@@ -26,14 +26,14 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
         //TODO: Плохое решение, но без него на POST возвращается 403 результат. Нужно поправить, но пока не знаю как.
         security.csrf().disable();
         security.authorizeRequests().anyRequest().permitAll();
-        //security.authorizeRequests()
-        //        .antMatchers("/signup","/js/signup.js").not().fullyAuthenticated()
-        //        .antMatchers("/login").permitAll()
-        //        .anyRequest().authenticated()
-        //        .and()
-        //        .formLogin().loginPage("/login").defaultSuccessUrl("/").permitAll()
-        //        .and()
-        //        .logout().permitAll().logoutSuccessUrl("/login");
+        security.authorizeRequests()
+                .antMatchers("/signup","/js/signup.js").not().fullyAuthenticated()
+                .antMatchers("/login").permitAll()
+                .anyRequest().authenticated()
+                .and()
+                .formLogin().loginPage("/login").defaultSuccessUrl("/").permitAll()
+                .and()
+                .logout().permitAll().logoutSuccessUrl("/login");
     }
 
     public void configureGlobal(AuthenticationManagerBuilder auth) throws Exception{

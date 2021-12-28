@@ -80,6 +80,7 @@ public class ConverterController {
 
         Convertation convertation = new Convertation(model.getFrom(),
                 model.getTo(),
+                model.getAmount(),
                 Double.parseDouble(res),
                 dateMapper.getSqlDate(new Date()),
                 fromCourse.get()

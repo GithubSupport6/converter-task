@@ -14,6 +14,7 @@ public class Convertation {
 
     String toCode;
 
+    double amount;
 
     double result;
 
@@ -48,14 +49,19 @@ public class Convertation {
         return toCode;
     }
 
+    public double getAmount() {
+        return amount;
+    }
+
     public Convertation(){}
 
-    public Convertation(String from, String to, double result, java.sql.Date date, Course course){
+    public Convertation(String from, String to, double amount, double result, java.sql.Date date, Course course){
         this.fromCode = from;
         this.toCode = to;
         this.result = result;
         this.date = date;
         this.course = course;
+        this.amount = amount;
     }
 
 }

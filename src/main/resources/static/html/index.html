@@ -12,23 +12,23 @@
 <body>
 <div id="app" class="main-container">
     <div class="row">
-        <div class="converter-panel col-md-4 offset-md-4">
+        <div class="converter-panel col-md-8 offset-md-2">
             <div class="row">
                 <div class="converter-label col-md-4 offset-md-4">
-                    <p>Конвертер</p>
+                    <h1 align="center">Конвертер</h1>
                 </div>
             </div>
 
             <div class="row">
                 <div class="left-currency col-md-5 offset-md-1">
-                    <select v-model="valuteLeft">
+                    <select class="form-select form-select-lg mb-3" v-model="valuteLeft">
                         <option v-if="defaultSelected" selected>{{ defaultSelected }}</option>
                         <option v-for="name in valutes">{{name}}</option>
                     </select>
                 </div>
 
                 <div class="right-currency col-md-5 offset-md-1">
-                    <select v-model="valuteRight">
+                    <select class="form-select form-select-lg mb-3" v-model="valuteRight">
                         <option v-for="name in valutes">{{name}}</option>
                     </select>
 
@@ -37,27 +37,29 @@
             </div>
 
             <div class="row">
-                <input class="col-md-3 offset-md-1" type="text" v-model="amount">
-                <input class="col-md-3 offset-md-1" type="text" v-model="amountRes" readonly>
+                <input class="col-md-3 offset-md-2" type="text" v-model="amount">
+                <input class="col-md-3 offset-md-3" type="text" v-model="amountRes" readonly>
             </div>
 
             <div class="row">
-                <button class="btn btn-light col-md-4 offset-md-4" v-on:click="convert">Конвертировать</button>
+                <button class="btn btn-light col-md-4 offset-md-4 mt-2" v-on:click="convert">Конвертировать</button>
             </div>
 
         </div>
         <div class="history">
             <div class="get-history row">
-                <button class="col-md-4 offset-md-4 btn btn-light" v-on:click="getHistory">История транзакций</button>
+                <button class="col-md-4 offset-md-4 btn btn-light mt-2" v-on:click="getHistory">История транзакций</button>
             </div>
             <div class="stat" v-if="history">
                 <div class="row">
-                    <div class="table col-md-9 offset-1">
+                    <div class="col-md-1"></div>
+                    <div class="table col-md-9">
                         <div class="row">
                             <div class="col-md-1"></div>
                             <div class="from col-md-2">Валюта 1</div>
                             <div class="to col-md-2">Валюта 2</div>
-                            <div class="course col-md-2">Количество</div>
+                            <div class="course col-md-1">Сумма</div>
+                            <div class="course col-md-1">Курс</div>
                             <div class="result col-md-2">Результат</div>
                             <div class="date col-md-2">Дата</div>
                             <div class="col-md-1"></div>
@@ -66,7 +68,8 @@
                             <div class="col-md-1"></div>
                             <div class="from col-md-2">{{ elem.fromCode }}</div>
                             <div class="to col-md-2">{{ elem.toCode }}</div>
-                            <div class="course col-md-2">{{ elem.course.value }}</div>
+                            <div class="to col-md-1">{{ elem.amount }}</div>
+                            <div class="course col-md-1">{{ elem.course.value }}</div>
                             <div class="result col-md-2">{{ elem.result }}</div>
                             <div class="date col-md-2">{{ elem.date }}</div>
                             <div class="col-md-1"></div>
