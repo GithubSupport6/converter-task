@@ -38,7 +38,7 @@ Response example:
 }
 ```
  - GET: /getHistory
- response example:
+ .Response example:
  ```
  {
   id:	1
