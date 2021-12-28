@@ -25,7 +25,6 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
     protected void configure(HttpSecurity security) throws Exception {
         //TODO: Плохое решение, но без него на POST возвращается 403 результат. Нужно поправить, но пока не знаю как.
         security.csrf().disable();
-        security.authorizeRequests().anyRequest().permitAll();
         security.authorizeRequests()
                 .antMatchers("/signup","/js/signup.js").not().fullyAuthenticated()
                 .antMatchers("/login").permitAll()
