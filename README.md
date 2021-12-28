@@ -1,7 +1,7 @@
 # Simple currences converter
 ## How to start
 - git clone this repo
-- set or create application.properties:
+- change in application.properties:
     - set to spring.datasource.url your database connection string
     - set spring.datasource.username and spring.datasource.password
     - set to cbrf.connection-string URL to xml document (http://www.cbr.ru/scripts/XML_daily.asp)
