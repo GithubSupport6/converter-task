@@ -21,6 +21,14 @@
 }
 ```
 - GET: /getNames - get list of current valutes
+response example:
+```
+[
+    "AUD (Австралийский доллар)",
+    "AZN (Азербайджанский манат",
+    ...
+]
+```
 - POST: /convert
 ```
 {
