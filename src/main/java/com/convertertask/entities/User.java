@@ -5,10 +5,12 @@ import com.convertertask.models.UserDetailsImpl;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.Table;
 import java.util.Objects;
 import java.util.stream.Collectors;
 
 @Entity
+@Table(name = "users")
 public class User {
 
     @Id
@@ -53,4 +55,9 @@ public class User {
     public boolean isEnabled() {
         return isEnabled;
     }
+
+    public long getId() {
+        return id;
+    }
+
 }

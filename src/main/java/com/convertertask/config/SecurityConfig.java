@@ -28,8 +28,8 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
         //TODO: Плохое решение, но без него на POST 403 ошибка. Нужно поправить.
         security.csrf().disable();
         security.authorizeRequests()
-                .antMatchers("/login").not().fullyAuthenticated()
-                .antMatchers("/signup").permitAll()
+                .antMatchers("/signup","/signup.js").not().fullyAuthenticated()
+                .antMatchers("/login").permitAll()
                 .anyRequest().authenticated()
                 .and()
                 .formLogin().loginPage("/login").defaultSuccessUrl("/").permitAll()

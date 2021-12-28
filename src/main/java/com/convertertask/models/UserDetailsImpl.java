@@ -2,29 +2,38 @@ package com.convertertask.models;
 
 import com.convertertask.entities.User;
 import org.springframework.security.core.GrantedAuthority;
+import org.springframework.security.core.authority.AuthorityUtils;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 
 import java.util.Arrays;
 import java.util.Collection;
+import java.util.LinkedList;
 import java.util.List;
 import java.util.stream.Collectors;
 
-public class UserDetailsImpl implements UserDetails {
+import static org.springframework.security.core.authority.AuthorityUtils.commaSeparatedStringToAuthorityList;
 
+public class UserDetailsImpl implements UserDetails {
 
     String username;
     String password;
-    List<GrantedAuthority> authorities;
+    List<GrantedAuthority> authorities = new LinkedList<>();
     boolean isEnabled;
 
     public UserDetailsImpl(){}
+
+    public UserDetailsImpl(String username,String password){
+        this.username = username;
+        this.password = password;
+        isEnabled = true;
+    }
 
     public UserDetailsImpl(User user){
         username = user.getUsername();
         password = user.getPassword();
         isEnabled = user.isEnabled();
-        authorities = Arrays.stream(user.getRoles().split(",")).map(SimpleGrantedAuthority::new).collect(Collectors.toList());
+        authorities = AuthorityUtils.commaSeparatedStringToAuthorityList(user.getRoles());
     }
 
     @Override

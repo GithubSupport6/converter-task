@@ -24,12 +24,12 @@ public class UserService implements UserDetailsService {
             return new UserDetailsImpl(user.get());
         }
         else {
-            throw new UsernameNotFoundException("User not found");
+            throw new UsernameNotFoundException("Username not found");
         }
     }
 
     public boolean saveUser(UserDetailsImpl user){
-        Optional<UserDetails> presented = Optional.ofNullable(loadUserByUsername(user.getUsername()));
+        Optional<User> presented = Optional.ofNullable(userRepository.findByUsername(user.getUsername()));
         if (presented.isPresent()){
             return false;
         }
