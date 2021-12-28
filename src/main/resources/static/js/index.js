@@ -16,6 +16,7 @@ var app = Vue.createApp({
             .then(res=>{
                 this.valutes = res.data
                 this.defaultSelected = this.valutes[0]
+                this.valueLeft = this.valutes[0]
             })
             .catch(err=>console.log(err))
   },

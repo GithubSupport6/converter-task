@@ -10,6 +10,6 @@ import java.util.List;
 @Repository
 public interface ValuteRepository extends JpaRepository<Valute,Long> {
 
-    public List<Valute> findByCharCode(String charCode);
+    List<Valute> findByCharCode(String charCode);
 
 }

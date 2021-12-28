@@ -14,8 +14,12 @@ var app = Vue.createApp({
                         password:this.password
                     }
                 )
-            .then(res=>this.error = res.data.error)
-            .catch(err=>console.log(err))
+            .then(res=>{
+                console.log(res.data)
+                this.error = null
+                window.location.replace("./login")
+            })
+            .catch(err=>this.error=err.request.status==403 ? "Пользователь с таким именем уже существует" : null)
     }
   }
 });

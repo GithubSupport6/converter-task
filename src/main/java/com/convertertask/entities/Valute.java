@@ -1,10 +1,7 @@
 package com.convertertask.entities;
 
 
-import com.convertertask.util.DateMapper;
-
 import javax.persistence.*;
-import java.sql.Date;
 import java.util.List;
 
 
