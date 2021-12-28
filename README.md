@@ -4,7 +4,7 @@
 - change in application.properties:
     - set to spring.datasource.url your database connection string
     - set spring.datasource.username and spring.datasource.password
-    - set to cbrf.connection-string URL to xml document (http://www.cbr.ru/scripts/XML_daily.asp)
+    - set cbrf.connection-string to URL of xml document (http://www.cbr.ru/scripts/XML_daily.asp)
     - set next properties
       - spring.mvc.view.suffix = .html
       - spring.mvc.view.prefix = /html/
