@@ -20,8 +20,8 @@
   password:
 }
 ```
-- GET: /getNames - get list of current valutes
-response example:
+- GET: /getNames - get list of current valutes.
+Response example:
 ```
 [
     "AUD (Австралийский доллар)",
