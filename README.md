@@ -31,6 +31,7 @@
 ```
  - GET: /getHistory
  response example:
+ ```
  {
   id:	1
   fromCode:	"AMD (Армянских драмов)",
