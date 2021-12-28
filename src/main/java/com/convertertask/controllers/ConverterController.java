@@ -95,9 +95,4 @@ public class ConverterController {
          return list;
     }
 
-    @GetMapping("/get")
-    public String onAuth(){
-        return "You should be auth to see this";
-    }
-
 }
