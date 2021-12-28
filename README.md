@@ -1,6 +1,6 @@
 # Simple currences converter
 ## How to start
-- git clone
+- git clone this repo
 - set or create application.properties:
     - set to spring.datasource.url your database connection string
     - set spring.datasource.username and spring.datasource.password
