@@ -37,8 +37,8 @@ Response example:
   amount: amount of valute 1
 }
 ```
- - GET: /getHistory
- .Response example:
+ - GET: /getHistory. 
+ Response example:
  ```
  {
   id:	1
